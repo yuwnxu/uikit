@@ -1,16 +1,20 @@
 import 'package:logger/logger.dart';
 
 // Уровни логирования
-enum LogLevel { info, debug, error }
+enum LogLevel {info, debug, error}
 
-//
-final appLogger = Logger(printer: SimplePrinter(colors: false, printTime: false), level: kDebugMode ? Level.debug : Level.nothing);
+// Инициализация логгера
+// Логи всегда включены на уровне debug и выше
+final appLogger = Logger(
+  printer: SimplePrinter(colors: false, printTime: false),
+  level: Level.debug
+);
 
 // Метод отображения лога
 // Входящие данные: тэг, событие, детали и уровень лога
 // Возвращаемые значения: форматирование лога
-// Автор создания: 5
-// Дата создания: 19.05.2026
+// Автор создания: #
+// Дата создания: ##.##.####
 void appLog(String tag, String event, String details, {LogLevel level = LogLevel.info}) {
   final mes = '[$tag]: $event - $details';
   switch (level) {

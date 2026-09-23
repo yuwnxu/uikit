@@ -15,17 +15,21 @@ class CustomTextField extends StatefulWidget {
   final TextFieldState state;
   final String? errortext;
   final TextEditingController? controller;
+  final bool isPassword;
+  final bool isSearch;
 
-  const CustomTextField({super.key, required this.label, required this.hint, this.state = TextFieldState.normal, this.errortext, this.controller});
+  const CustomTextField({super.key, required this.label, required this.hint, this.state = TextFieldState.normal, this.errortext, this.controller, this.isPassword = false, this.isSearch = false});
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
 
 class _CustomTextFieldState extends State<CustomTextField> {
+  bool _obscureText = true;
+
   @override
   Widget build(BuildContext context) {
-    Color borderColor = secondary;
+    Color borderColor = grey;
     Color labelColor = secondary;
 
     if (widget.state == TextFieldState.focused) {
@@ -46,10 +50,22 @@ class _CustomTextFieldState extends State<CustomTextField> {
           child: TextField(
             controller: widget.controller,
             enabled: widget.state != TextFieldState.disabled,
-            style: const TextStyle(color: black),
+            obscureText: widget.isPassword ? _obscureText : false,
+            style: TextStyle(color: black),
             decoration: InputDecoration(
               hintText: widget.hint,
               hintStyle: bodyMedium.copyWith(color: secondary),
+              prefixIcon: widget.isSearch ? Image.asset('assets/search.png', width: 18.fw, height: 18.fh) : null,
+              suffixIcon: widget.isPassword
+                  ? GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          _obscureText = !_obscureText;
+                        });
+                      },
+                      child: Image.asset('assets/eye.png', width: 24.fw, height: 15.fh),
+                    )
+                  : null,
               filled: true,
               fillColor: darkenWhite,
               contentPadding: ps(h: 16.fw, v: 12.fh),

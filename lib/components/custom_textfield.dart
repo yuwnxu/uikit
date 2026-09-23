@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 // Основные текстовые поля
 // Автор создания: #
@@ -57,7 +56,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             decoration: InputDecoration(
               hintText: widget.hint,
               hintStyle: bodyMedium.copyWith(color: secondary),
-              prefixIcon: widget.prefixIcon != null ? SizedBox(width: 18, height: 18, child: SvgPicture.asset(widget.prefixIcon!, fit: BoxFit.contain)) : null,
+              prefixIcon: widget.prefixIcon != null ? Image.asset(widget.prefixIcon!, width: 18, height: 18) : null,
 
               suffixIcon: widget.suffixIcon != null
                   ? GestureDetector(
@@ -68,7 +67,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                               });
                             }
                           : null,
-                      child: SizedBox(width: 22, height: 15, child: SvgPicture.asset(widget.suffixIcon!, fit: BoxFit.contain)),
+                      child: Image.asset(widget.suffixIcon!, width: 22, height: 15),
                     )
                   : null,
               filled: true,

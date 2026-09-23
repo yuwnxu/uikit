@@ -10,7 +10,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  flutter_svg: ^2.3.0
   logger: ^2.8.0
   vize: ^1.0.4
 

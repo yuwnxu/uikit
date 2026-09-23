@@ -12,9 +12,9 @@ final appLogger = Logger(
 
 // Метод отображения лога
 // Входящие данные: тэг, событие, детали и уровень лога
-// Возвращаемые значения: форматирование лога
-// Автор создания: #
+// Возвращаемые значения: форматирование лога// Автор создания: #
 // Дата создания: ##.##.####
+
 void appLog(String tag, String event, String details, {LogLevel level = LogLevel.info}) {
   final mes = '[$tag]: $event - $details';
   switch (level) {

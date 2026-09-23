@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 // Основные цвета проекта
+// Автор создания: #
+// Дата создания: ##.##.####
 
 const Color primary = Color(0xff004AC6);
 const Color secondary = Color(0xff505F76);

@@ -55,7 +55,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             decoration: InputDecoration(
               hintText: widget.hint,
               hintStyle: bodyMedium.copyWith(color: secondary),
-              prefixIcon: widget.isSearch ? Image.asset('assets/search.png', width: 18.fw, height: 18.fh) : null,
+              prefixIcon: widget.isSearch ? Image.asset('lib/assets/search.png', width: 18.fw, height: 18.fh) : null,
               suffixIcon: widget.isPassword
                   ? GestureDetector(
                       onTap: () {
@@ -63,7 +63,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                           _obscureText = !_obscureText;
                         });
                       },
-                      child: Image.asset('assets/eye.png', width: 24.fw, height: 15.fh),
+                      child: Image.asset('lib/assets/eye.png', width: 24.fw, height: 15.fh),
                     )
                   : null,
               filled: true,

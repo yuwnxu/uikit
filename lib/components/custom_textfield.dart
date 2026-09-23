@@ -57,7 +57,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             decoration: InputDecoration(
               hintText: widget.hint,
               hintStyle: bodyMedium.copyWith(color: secondary),
-              prefixIcon: widget.prefixIcon != null ? SvgPicture.asset(widget.prefixIcon!, width: 18.fw, height: 18.fh) : null,
+              prefixIcon: widget.prefixIcon != null ? SizedBox(width: 18, height: 18, child: SvgPicture.asset(widget.prefixIcon!, fit: BoxFit.contain)) : null,
 
               suffixIcon: widget.suffixIcon != null
                   ? GestureDetector(
@@ -68,7 +68,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                               });
                             }
                           : null,
-                      child: SvgPicture.asset(widget.suffixIcon!, width: 24, height: 15),
+                      child: SizedBox(width: 22, height: 15, child: SvgPicture.asset(widget.suffixIcon!, fit: BoxFit.contain)),
                     )
                   : null,
               filled: true,

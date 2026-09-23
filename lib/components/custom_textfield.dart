@@ -56,8 +56,13 @@ class _CustomTextFieldState extends State<CustomTextField> {
             decoration: InputDecoration(
               hintText: widget.hint,
               hintStyle: bodyMedium.copyWith(color: secondary),
-              prefixIcon: widget.prefixIcon != null ? Image.asset(widget.prefixIcon!, width: 18, height: 18) : null,
-
+              prefixIcon: widget.prefixIcon != null
+                  ? Padding(
+                      padding: po(l: 17.fw),
+                      child: Image.asset(widget.prefixIcon!, width: 18, height: 18),
+                    )
+                  : null,
+              prefixIconConstraints: const BoxConstraints(minWidth: 0, minHeight: 0),
               suffixIcon: widget.suffixIcon != null
                   ? GestureDetector(
                       onTap: widget.isPassword
@@ -67,9 +72,14 @@ class _CustomTextFieldState extends State<CustomTextField> {
                               });
                             }
                           : null,
-                      child: Image.asset(widget.suffixIcon!, width: 22, height: 15),
+                      child: Padding(
+                        padding: EdgeInsets.only(right: 18.fw),
+                        child: Image.asset(widget.suffixIcon!, width: 22, height: 15),
+                      ),
                     )
                   : null,
+              suffixIconConstraints: const BoxConstraints(minWidth: 0, minHeight: 0),
+
               filled: true,
               fillColor: darkenWhite,
               contentPadding: ps(h: 16.fw, v: 12.fh),

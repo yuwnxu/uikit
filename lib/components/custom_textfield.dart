@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 // Основные текстовые поля
 // Автор создания: #
@@ -15,10 +16,11 @@ class CustomTextField extends StatefulWidget {
   final TextFieldState state;
   final String? errortext;
   final TextEditingController? controller;
+  final String? prefixIcon;
+  final String? suffixIcon;
   final bool isPassword;
-  final bool isSearch;
 
-  const CustomTextField({super.key, required this.label, required this.hint, this.state = TextFieldState.normal, this.errortext, this.controller, this.isPassword = false, this.isSearch = false});
+  const CustomTextField({super.key, required this.label, required this.hint, this.state = TextFieldState.normal, this.errortext, this.controller, this.prefixIcon, this.suffixIcon, this.isPassword = false});
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -55,15 +57,18 @@ class _CustomTextFieldState extends State<CustomTextField> {
             decoration: InputDecoration(
               hintText: widget.hint,
               hintStyle: bodyMedium.copyWith(color: secondary),
-              prefixIcon: widget.isSearch ? Image.asset('lib/assets/search.png', width: 18.fw, height: 18.fh) : null,
-              suffixIcon: widget.isPassword
+              prefixIcon: widget.prefixIcon != null ? SvgPicture.asset(widget.prefixIcon!, width: 18.fw, height: 18.fh) : null,
+
+              suffixIcon: widget.suffixIcon != null
                   ? GestureDetector(
-                      onTap: () {
-                        setState(() {
-                          _obscureText = !_obscureText;
-                        });
-                      },
-                      child: Image.asset('lib/assets/eye.png', width: 24.fw, height: 15.fh),
+                      onTap: widget.isPassword
+                          ? () {
+                              setState(() {
+                                _obscureText = !_obscureText;
+                              });
+                            }
+                          : null,
+                      child: SvgPicture.asset(widget.suffixIcon!, width: 24, height: 15),
                     )
                   : null,
               filled: true,

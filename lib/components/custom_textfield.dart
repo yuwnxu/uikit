@@ -56,12 +56,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
             decoration: InputDecoration(
               hintText: widget.hint,
               hintStyle: bodyMedium.copyWith(color: secondary),
-              prefixIcon: widget.prefixIcon != null
-                  ? Padding(
-                      padding: po(l: 17.fw),
-                      child: Image.asset(widget.prefixIcon!, width: 18, height: 18),
-                    )
-                  : null,
+              prefixIcon: widget.prefixIcon != null ? Padding(padding: po(l: 17, r: 8), child: Image.asset(widget.prefixIcon!, width: 18, height: 18)) : null,
               prefixIconConstraints: const BoxConstraints(minWidth: 0, minHeight: 0),
               suffixIcon: widget.suffixIcon != null
                   ? GestureDetector(

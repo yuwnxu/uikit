@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:uikit/typography.dart';
 import 'package:vize/vize.dart';
 
+// Основные кнопки
+// Автор создания: #
+// Дата создания: ##.##.####
 class CustomButton extends StatefulWidget {
   final Color fillcolor;
   final Color bordercolor;

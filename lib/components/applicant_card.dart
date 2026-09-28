@@ -3,6 +3,8 @@ import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
 
+import 'custom_avatar.dart';
+
 // Карточка соискателя
 // Автор создания: #
 // Дата создания: ##.##.####
@@ -35,14 +37,7 @@ class ApplicantCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              CircleAvatar(
-                radius: 24.r,
-                backgroundColor: grey,
-                child: Text(
-                  'PD',
-                  style: bodyMedium.copyWith(color: primary, fontWeight: .w700),
-                ),
-              ),
+              CustomAvatar(initials: 'PD', size: 48, borderColor: grey, bgColor: grey),
               SizedBox(width: 16.fw),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

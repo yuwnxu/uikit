@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
+import 'custom_avatar.dart';
 
 // Карточка профиля
 // Автор создания: #
@@ -12,12 +13,7 @@ class ProfileCard extends StatelessWidget {
   final String name; // Имя
   final String identity; // Профессия
 
-  const ProfileCard({
-    super.key,
-    required this.photo,
-    required this.name,
-    required this.identity,
-  });
+  const ProfileCard({super.key, required this.photo, required this.name, required this.identity});
 
   @override
   Widget build(BuildContext context) {
@@ -28,20 +24,14 @@ class ProfileCard extends StatelessWidget {
         color: white,
         borderRadius: BorderRadius.circular(12.r),
         border: Border.all(color: grey, width: 1),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.05),
-            blurRadius: 12,
-            offset: Offset(0, 4),
-          ),
-        ],
+        boxShadow: [BoxShadow(color: Colors.black.withOpacity(0.05), blurRadius: 12, offset: Offset(0, 4))],
       ),
       child: Padding(
         padding: pa(16),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(photo, width: 96.fw, height: 96.fh),
+            CustomAvatar(photo: photo, initials: '', size: 96, borderColor: white, bgColor: white),
             SizedBox(height: 16.fh),
             Text(name, style: subHeader),
             SizedBox(height: 4.fh),

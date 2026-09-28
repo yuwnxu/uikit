@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
+import 'custom_avatar.dart';
 
 // Карточка интервью
 // Автор создания: #
@@ -36,7 +37,7 @@ class HrBoardCard extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Image.asset(photo, width: 48.fw, height: 48.fh),
+              CustomAvatar(photo: photo, initials: '', size: 48, borderColor: grey, bgColor: white),
               SizedBox(width: 16.fw),
               Expanded(
                 child: Column(

@@ -37,7 +37,7 @@ class ApplicantCard extends StatelessWidget {
         children: [
           Row(
             children: [
-              CustomAvatar(initials: 'PD', size: 48, borderColor: grey, bgColor: grey, initialsStyle: TextStyle(fontSize: 16), initialsColor: primary),
+              CustomAvatar(initials: 'PD', size: 48, borderColor: grey, bgColor: grey, initialsStyle: TextStyle(fontSize: 16), initialsColor: Color(0xff004AC6)),
               SizedBox(width: 16.fw),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

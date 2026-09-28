@@ -15,8 +15,9 @@ class CustomAvatar extends StatelessWidget {
   final Color bgColor; // Цвет фона
   final Color? initialsColor; // Цвет текста инициалов
   final String? label; // Подпись снизу аватарки
+  final TextStyle? initialsStyle; // Стиль инициалов
 
-  const CustomAvatar({super.key, this.photo, required this.initials, this.size = 64,required this.borderColor,required this.bgColor, this.initialsColor, this.label});
+  const CustomAvatar({super.key, this.photo, required this.initials, this.size = 64, required this.borderColor, required this.bgColor, this.initialsColor, this.label, this.initialsStyle});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +37,7 @@ class CustomAvatar extends StatelessWidget {
             radius: size / 2,
             backgroundColor: bgColor,
             backgroundImage: hasPhoto ? AssetImage(photo!) : null,
-            child: hasPhoto ? null : Text(initials, style: subHeader.copyWith(color: initialsColor, fontSize: 20)),
+            child: hasPhoto ? null : Text(initials, style: initialsStyle ?? subHeader.copyWith(color: initialsColor)),
           ),
         ),
         SizedBox(height: 8.fh),

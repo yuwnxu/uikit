@@ -37,7 +37,7 @@ class CustomAppbar extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Logging().info('CustomAppbar', 'Иконка нажата', 'Произошло нажатие на иконку');
-                tapLeft.call;
+                tapLeft?.call();
               },
               child: Image.asset(iconleft!, width: 16.fw, height: 16.fh),
             ),
@@ -49,7 +49,7 @@ class CustomAppbar extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Logging().info('CustomAppbar', 'Иконка нажата', 'Произошло нажатие на иконку');
-                tapRight.call;
+                tapRight?.call();
               },
               child: Image.asset(iconright!, width: 4.fw, height: 16.fh),
             ),

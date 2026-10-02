@@ -34,7 +34,7 @@ class CustomHeader extends StatelessWidget {
             GestureDetector(
               onTap: () {
                 Logging().info('CustomHeader', 'Нажатие', 'Произошло нажатие на иконку');
-                onIconTap.call;
+                onIconTap?.call();
               },
               child: Image.asset(icon!, width: width.fw, height: height.fh),
             ),

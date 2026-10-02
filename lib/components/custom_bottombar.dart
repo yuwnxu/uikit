@@ -46,14 +46,12 @@ class CustomBottombar extends StatelessWidget {
               onTap2.call;
             },
             child: Container(
-              width: 165.fw,
               padding: ps(h: 40.fw, v: 8.fh),
               decoration: BoxDecoration(color: primary, borderRadius: BorderRadius.circular(12.r)),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Image.asset('assets/bigRight.png', width: 16.fw, height: 16.fh, color: white),
-                  SizedBox(width: 8.fw),
                   Text('Продолжить', style: bodySmall.copyWith(color: white)),
                 ],
               ),

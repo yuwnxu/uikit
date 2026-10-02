@@ -54,7 +54,7 @@ class _CustomSelectState extends State<CustomSelect> {
         GestureDetector(
           onTap: () {
             Logging().info('CustomSelect', 'Нажатие', 'Произошло нажатие на селект');
-            _openSheet.call;
+            _openSheet();
           },
           child: Container(
             width: 350.fw,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uikit/logg.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
@@ -8,9 +9,9 @@ import 'package:uikit/typography.dart';
 // Дата создания: ##.##.####
 
 class CustomNavbar extends StatelessWidget {
-  final String text1;
-  final String text2;
-  final String text3;
+  final String text1; // Текст под первой иконкой
+  final String text2; // Текст под второй иконкой
+  final String text3; // Текст под третьей иконкой
   final int currentPage; // Текущая страница
   final ValueChanged<int> onTap; // Действие при нажатии на кнопку
 
@@ -29,9 +30,33 @@ class CustomNavbar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
-          _buildItem(icon: 'assets/bag.png', label: text1, isActive: currentPage == 0, onTap: () => onTap(0)),
-          _buildItem(icon: 'assets/candidate.png', label: text2, isActive: currentPage == 1, onTap: () => onTap(1)),
-          _buildItem(icon: 'assets/settings.png', label: text3, isActive: currentPage == 2, onTap: () => onTap(2)),
+          _buildItem(
+            icon: 'assets/bag.png',
+            label: text1,
+            isActive: currentPage == 0,
+            onTap: () {
+              Logging().info('CustomNavbar', 'Вкладка', 'Открыта $text1');
+              onTap(0);
+            },
+          ),
+          _buildItem(
+            icon: 'assets/candidate.png',
+            label: text2,
+            isActive: currentPage == 1,
+            onTap: () {
+              Logging().info('CustomNavbar', 'Вкладка', 'Открыта $text2');
+              onTap(1);
+            },
+          ),
+          _buildItem(
+            icon: 'assets/settings.png',
+            label: text3,
+            isActive: currentPage == 2,
+            onTap: () {
+              Logging().info('CustomNavbar', 'Вкладка', 'Открыта $text3');
+              onTap(2);
+            },
+          ),
         ],
       ),
     );

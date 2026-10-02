@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uikit/logg.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
@@ -31,7 +32,10 @@ class CustomHeader extends StatelessWidget {
         children: [
           if (icon != null)
             GestureDetector(
-              onTap: onIconTap,
+              onTap: () {
+                Logging().info('CustomHeader', 'Нажатие', 'Произошло нажатие на иконку');
+                onIconTap.call;
+              },
               child: Image.asset(icon!, width: width.fw, height: height.fh),
             ),
           SizedBox(width: 12.fw),

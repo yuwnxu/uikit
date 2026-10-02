@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
+import 'package:uikit/logg.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
@@ -22,6 +23,12 @@ class CustomSelect extends StatefulWidget {
 }
 
 class _CustomSelectState extends State<CustomSelect> {
+  @override
+  void initState() {
+    super.initState();
+    Logging().info('CustomSelect', 'Создание', 'Селект создан в первый раз');
+  }
+
   void _openSheet() {
     showMaterialModalBottomSheet(
       context: context,
@@ -45,7 +52,10 @@ class _CustomSelectState extends State<CustomSelect> {
         Text(widget.label, style: fieldLabel.copyWith(color: secondary)),
         SizedBox(height: 4.5.fh),
         GestureDetector(
-          onTap: _openSheet,
+          onTap: () {
+            Logging().info('CustomSelect', 'Нажатие', 'Произошло нажатие на селект');
+            _openSheet.call;
+          },
           child: Container(
             width: 350.fw,
             height: 48.fh,
@@ -97,6 +107,7 @@ class _StatusSheetState extends State<_StatusSheet> {
 
     return GestureDetector(
       onTap: () {
+        Logging().info('CustomSelect', 'Нажатие', 'Произошло нажатие на пункт');
         setState(() {
           _selectedValue = item;
         });

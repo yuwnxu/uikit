@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
-
 import 'custom_avatar.dart';
 
 // Карточка соискателя

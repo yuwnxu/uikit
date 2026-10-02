@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uikit/logg.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
@@ -7,17 +8,18 @@ import 'package:uikit/typography.dart';
 // Автор создания: #
 // Дата создания: ##.##.####
 
+// Состояние поля
 enum TextFieldState { normal, focused, error, disabled }
 
 class CustomTextField extends StatefulWidget {
-  final String label;
-  final String hint;
-  final TextFieldState state;
-  final String? errortext;
-  final TextEditingController? controller;
-  final String? prefixIcon;
-  final String? suffixIcon;
-  final bool isPassword;
+  final String label; // Заголовок
+  final String hint; // Текст-подсказка
+  final TextFieldState state; // Состояние поля
+  final String? errortext; // Текст ошибки
+  final TextEditingController? controller; // Контроллер
+  final String? prefixIcon; // Иконка слева
+  final String? suffixIcon; // Иконка справа
+  final bool isPassword; // Переменная для поля с паролем
 
   const CustomTextField({super.key, required this.label, required this.hint, this.state = TextFieldState.normal, this.errortext, this.controller, this.prefixIcon, this.suffixIcon, this.isPassword = false});
 
@@ -27,6 +29,12 @@ class CustomTextField extends StatefulWidget {
 
 class _CustomTextFieldState extends State<CustomTextField> {
   bool _obscureText = true;
+
+  @override
+  void initState() {
+    super.initState();
+    Logging().info('CustomTextField', 'Создание', 'Поле создано');
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -65,6 +73,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                               setState(() {
                                 _obscureText = !_obscureText;
                               });
+                              Logging().debug('CustomTextField', 'Пароль', _obscureText ? 'Скрыт' : 'Показан');
                             }
                           : null,
                       child: Padding(
@@ -99,7 +108,6 @@ class _CustomTextFieldState extends State<CustomTextField> {
                 borderRadius: BorderRadius.circular(8.r),
                 borderSide: BorderSide(color: borderColor, width: 1),
               ),
-
               errorText: widget.state == TextFieldState.error ? widget.errortext : null,
               errorStyle: fieldLabel.copyWith(color: error),
             ),

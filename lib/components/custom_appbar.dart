@@ -1,4 +1,7 @@
+import 'dart:nativewrappers/_internal/vm/lib/ffi_allocation_patch.dart';
+
 import 'package:flutter/material.dart';
+import 'package:uikit/logg.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
@@ -32,7 +35,10 @@ class CustomAppbar extends StatelessWidget {
         children: [
           if (iconleft != null)
             GestureDetector(
-              onTap: tapLeft,
+              onTap: () {
+                Logging().info('CustomAppbar', 'Иконка нажата', 'Произошло нажатие на иконку');
+                tapLeft.call;
+              },
               child: Image.asset(iconleft!, width: 16.fw, height: 16.fh),
             ),
           SizedBox(width: 16.fw),
@@ -41,7 +47,10 @@ class CustomAppbar extends StatelessWidget {
           ),
           if (iconright != null)
             GestureDetector(
-              onTap: tapRight,
+              onTap: () {
+                Logging().info('CustomAppbar', 'Иконка нажата', 'Произошло нажатие на иконку');
+                tapRight.call;
+              },
               child: Image.asset(iconright!, width: 4.fw, height: 16.fh),
             ),
         ],

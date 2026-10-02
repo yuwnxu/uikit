@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uikit/logg.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
@@ -26,7 +27,10 @@ class CustomBottombar extends StatelessWidget {
       child: Row(
         children: [
           GestureDetector(
-            onTap: onTap1,
+            onTap: () {
+              Logging().info('CustomBottombar', 'Нажатие', 'Произошло нажатие на кнопку');
+              onTap1.call;
+            },
             behavior: HitTestBehavior.opaque,
             child: Column(
               children: [
@@ -37,7 +41,10 @@ class CustomBottombar extends StatelessWidget {
           ),
           SizedBox(width: 32.fh),
           GestureDetector(
-            onTap: onTap2,
+            onTap: () {
+              Logging().info('CustomBottombar', 'Нажатие', 'Произошло нажатие на кнопку');
+              onTap2.call;
+            },
             child: Container(
               width: 165.fw,
               padding: ps(h: 40.fw, v: 8.fh),

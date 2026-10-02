@@ -11,21 +11,14 @@ class CustomProgressBar extends StatelessWidget {
   final String text; // Текст над полосками
   final int currentStep; // Текущий шаг
 
-  const CustomProgressBar({
-    super.key,
-    required this.currentStep,
-    required this.text,
-  });
+  const CustomProgressBar({super.key, required this.currentStep, required this.text});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          '$text (Шаг $currentStep из 3)',
-          style: bodySmall.copyWith(color: black),
-        ),
+        Text('$text (Шаг $currentStep из 3)', style: bodySmall.copyWith(color: black)),
         SizedBox(height: 8.fh),
         Row(
           children: [

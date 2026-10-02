@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uikit/logg.dart';
 import 'package:vize/vize.dart';
 import 'package:uikit/color.dart';
 import 'package:uikit/typography.dart';
@@ -11,11 +12,11 @@ import 'package:uikit/typography.dart';
 enum CheckboxState { checked, unchecked, disabled }
 
 class CustomCheckbox extends StatefulWidget {
-  final String label; // заголовок
-  final bool value; // текущее состояние
-  final String icon; // путь к иконке
-  final ValueChanged<bool>? onChanged; // колбэк при изменении
-  final bool isDisabled;
+  final String label; // Заголовок
+  final bool value; // Текущее состояние
+  final String icon; // Путь к иконке
+  final ValueChanged<bool>? onChanged; // Колбэк при изменении
+  final bool isDisabled; // Переменная для некликабельной кнопки
 
   const CustomCheckbox({super.key, required this.label, required this.value, this.onChanged, this.isDisabled = false, required this.icon});
 
@@ -29,6 +30,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
   @override
   void initState() {
     super.initState();
+    Logging().info('CustomCheckbox', 'Создание', 'Кнопка создана в первый раз');
     if (widget.value == true) {
       _isTap = true;
     } else {
@@ -61,6 +63,7 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
     }
     return GestureDetector(
       onTap: () {
+        Logging().info('CustomCheckbox', 'Нажатие', 'Произошло нажатие на чекбокс');
         if (widget.isDisabled == false) {
           setState(() {
             _isTap = !_isTap;
@@ -81,8 +84,8 @@ class _CustomCheckboxState extends State<CustomCheckbox> {
             ),
             child: showicon
                 ? Center(
-              child: Image.asset(widget.icon, width: 9.51.fw, height: 7.01.fh),
-            )
+                    child: Image.asset(widget.icon, width: 9.51.fw, height: 7.01.fh),
+                  )
                 : null,
           ),
           SizedBox(width: 16.fw),

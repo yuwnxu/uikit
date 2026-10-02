@@ -1,31 +1,44 @@
 import 'package:logger/logger.dart';
 
-// Уровни логирования
-enum LogLevel {info, debug, error}
-
-// Инициализация логгера
-// Логи всегда включены на уровне debug и выше
-final appLogger = Logger(
-  printer: SimplePrinter(colors: false, printTime: false),
-  level: Level.debug
-);
-
-// Метод отображения лога
-// Входящие данные: тэг, событие, детали и уровень лога
-// Возвращаемые значения: форматирование лога// Автор создания: #
+// Класс отвечает за логирование событий различных уровней (debug, info, error)
+// Автор создания: #
 // Дата создания: ##.##.####
+class Logging {
+  var log = Logger();
 
-void appLog(String tag, String event, String details, {LogLevel level = LogLevel.info}) {
-  final mes = '[$tag]: $event - $details';
-  switch (level) {
-    case LogLevel.debug:
-      appLogger.d(mes);
-      break;
-    case LogLevel.info:
-      appLogger.i(mes);
-      break;
-    case LogLevel.error:
-      appLogger.e(mes);
-      break;
+  // Форматирование сообщения в консоль
+  // Автор создания: #
+  // Дата создания: ##.##.####
+  // Входные параметры: тег, событие и детали
+  // Возращаемые данные: формат сообщения
+  String? _format(String tag, String event, String details) {
+    return '[$tag]: $event — $details';
+  }
+
+  // Лог уровня debug
+  // Автор создания: #
+  // Дата создания: ##.##.####
+  // Входные параметры: тег, событие и детали
+  // Возращаемые данные: лог в консоль
+  void debug(String tag, String event, String details) {
+    log.d(_format(tag, event, details));
+  }
+
+  // Лог уровня info
+  // Автор создания: #
+  // Дата создания: ##.##.####
+  // Входные параметры: тег, событие и детали
+  // Возращаемые данные: лог в консоль
+  void info(String tag, String event, String details) {
+    log.i(_format(tag, event, details));
+  }
+
+  // Лог уровня error
+  // Автор создания: #
+  // Дата создания: ##.##.####
+  // Входные параметры: тег, событие и детали
+  // Возращаемые данные: лог в консоль
+  void error(String tag, String event, String details, var error) {
+    log.d(_format(tag, event, details), error: error);
   }
 }

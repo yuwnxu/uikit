@@ -42,7 +42,7 @@ class _CustomButtonState extends State<CustomButton> {
           ? null
           : () {
               Logging().info('CustomButton', 'Нажатие', 'Произошло нажатие на кнопку');
-              widget.onTap?.call;
+              widget.onTap?.call();
             },
       child: Container(
         width: widget.width,

@@ -20,10 +20,10 @@ SnackBar customSnackbar() {
     behavior: SnackBarBehavior.floating,
     content: Container(
       width: 350.fw,
-      padding: pa(16),
+      height: 72.fh,
+      padding: po(l: 16, t: 16, b: 16, r: 24),
       decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.r), color: black),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Image.asset('assets/checkCircle.png', width: 20.fw, height: 20.fh),
           SizedBox(width: 8.fw),

@@ -20,9 +20,8 @@ SnackBar customSnackbar() {
     behavior: SnackBarBehavior.floating,
     content: Container(
       width: 350.fw,
-      color: black,
       padding: pa(16),
-      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.r)),
+      decoration: BoxDecoration(borderRadius: BorderRadius.circular(8.r), color: black),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [

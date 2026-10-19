@@ -78,18 +78,18 @@ class _CustomBottomBarState extends State<CustomBottomBar> {
       ),
     );
   }
-}
 
-Widget _item({required String icon, required String label, required VoidCallback onTap, required bool isActive}) {
-  final Color color = isActive ? primary : secondary;
-  return GestureDetector(
-    onTap: onTap,
-    behavior: HitTestBehavior.opaque,
-    child: Column(
-      children: [
-        Image.asset(icon, width: 20.fw, height: 20.fh, color: color),
-        Text(label, style: fieldLabel.copyWith(color: color)),
-      ],
-    ),
-  );
+  Widget _item({required String icon, required String label, required VoidCallback onTap, required bool isActive}) {
+    final Color color = isActive ? primary : secondary;
+    return GestureDetector(
+      onTap: onTap,
+      behavior: HitTestBehavior.opaque,
+      child: Column(
+        children: [
+          Image.asset(icon, width: 20.fw, height: 20.fh, color: color),
+          Text(label, style: fieldLabel.copyWith(color: color)),
+        ],
+      ),
+    );
+  }
 }

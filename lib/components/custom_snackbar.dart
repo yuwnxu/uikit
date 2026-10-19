@@ -31,7 +31,7 @@ SnackBar customSnackbar() {
           Expanded(
             child: Text('Candidate card successfully\nremoved from the board', style: bodySmall.copyWith(color: white)),
           ),
-          Spacer(),
+          SizedBox(width: 40.fw),
           Text('UNDO', style: fieldLabel.copyWith(color: grey)),
         ],
       ),

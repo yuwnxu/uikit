@@ -59,7 +59,10 @@ class _CustomTextFieldState extends State<CustomTextField> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.label, style: subheader.copyWith(color: labelColor, fontSize: 14, letterSpacing: 0, height: 20 / 14)),
+        Text(
+          widget.label,
+          style: subheader.copyWith(color: labelColor, fontSize: 14, letterSpacing: 0, height: 20 / 14),
+        ),
         SizedBox(height: 4.5.fh),
         SizedBox(
           width: 350.fw,
@@ -67,52 +70,63 @@ class _CustomTextFieldState extends State<CustomTextField> {
             obscureText: widget.type == TextFieldType.password ? obsecureText : false,
             controller: widget.controller,
             onTap: () {
-              widget.state == TextFieldState.disabled
-              ? null
-              :
-              Logging().info('CustomTextField', 'Нажатие', 'Произошло нажатие на поле');
+              widget.state == TextFieldState.disabled ? null : Logging().info('CustomTextField', 'Нажатие', 'Произошло нажатие на поле');
             },
             style: bodySmall.copyWith(fontSize: 16),
             decoration: InputDecoration(
               filled: true,
               fillColor: darkenWhite,
               contentPadding: ps(v: 12, h: 16),
-                hintText: widget.hint,
-                hintStyle: bodySmall.copyWith(fontSize: 16, color: secondary),
-                suffixIcon: widget.type == TextFieldType.password ? Padding(padding: po(r: 18), child: GestureDetector(
-                    onTap: () {
-                      Logging().info('CustomTextField', 'Нажатие', 'Произошло нажатие на иконку');
-                      setState(() {
-                        obsecureText = !obsecureText;
-                      });
-                    },
-                    child: Image.asset('assets/eye.png', width: 24.fw, height: 15.fh))) : null,
+              hintText: widget.hint,
+              hintStyle: bodySmall.copyWith(fontSize: 16, color: secondary),
+              suffixIcon: widget.type == TextFieldType.password
+                  ? Padding(
+                      padding: po(r: 18),
+                      child: GestureDetector(
+                        onTap: () {
+                          Logging().info('CustomTextField', 'Нажатие', 'Произошло нажатие на иконку');
+                          setState(() {
+                            obsecureText = !obsecureText;
+                          });
+                        },
+                        child: Image.asset('assets/eye.png', width: 24.fw, height: 15.fh),
+                      ),
+                    )
+                  : null,
               suffixIconConstraints: BoxConstraints(minHeight: 0, minWidth: 0),
-                prefixIcon: widget.type == TextFieldType.search ? Padding(padding: po(l: 17, r: 2), child: Image.asset('assets/search.png', width: 18.fw, height: 18.fh)) : null,
-                prefixIconConstraints: BoxConstraints(minHeight: 0, minWidth: 0),
+              prefixIcon: widget.type == TextFieldType.search
+                  ? Padding(
+                      padding: po(l: 17, r: 2),
+                      child: Image.asset('assets/search.png', width: 18.fw, height: 18.fh),
+                    )
+                  : null,
+              prefixIconConstraints: BoxConstraints(minHeight: 0, minWidth: 0),
               focusedBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: borderColor, width: 1),
-                  borderRadius: BorderRadius.circular(8.r)
+                borderSide: BorderSide(color: borderColor, width: 1),
+                borderRadius: BorderRadius.circular(8.r),
               ),
 
               disabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: borderColor, width: 1),
-                  borderRadius: BorderRadius.circular(8.r)
+                borderSide: BorderSide(color: borderColor, width: 1),
+                borderRadius: BorderRadius.circular(8.r),
               ),
 
               enabledBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: borderColor, width: 1),
-                  borderRadius: BorderRadius.circular(8.r)
+                borderSide: BorderSide(color: borderColor, width: 1),
+                borderRadius: BorderRadius.circular(8.r),
               ),
-
+              focusedErrorBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: borderColor, width: 1),
+                borderRadius: BorderRadius.circular(8.r),
+              ),
               errorBorder: OutlineInputBorder(
-                  borderSide: BorderSide(color: borderColor, width: 1),
-                  borderRadius: BorderRadius.circular(8.r)
+                borderSide: BorderSide(color: borderColor, width: 1),
+                borderRadius: BorderRadius.circular(8.r),
               ),
               errorText: widget.errorText,
               errorStyle: fieldLabel.copyWith(color: error),
             ),
-              enabled: widget.state == TextFieldState.disabled ? false : true,
+            enabled: widget.state == TextFieldState.disabled ? false : true,
           ),
         ),
       ],
